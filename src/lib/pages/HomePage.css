@@ -1,0 +1,36 @@
+a.HomePage-link {
+    text-decoration: none;
+    margin: 1rem;
+}
+
+a.HomePage-link .HomePage-paper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border: none;
+    background-color: #EFEFEF;
+}
+
+a.HomePage-link .HomePage-paper:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+a.HomePage-link .HomePage-paper:hover {
+    background-color: #EAEAEA;
+}
+
+.HomePage-linkContent {
+    text-align: center;
+    font-size: 0.7rem;
+}
+
+.HomePage-linkContent .HomePage-icon {
+    font-size: 2rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}

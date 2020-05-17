@@ -3,5 +3,10 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 export default (props => /*#__PURE__*/React.createElement(TextField, _extends({}, props, {
+  style: {
+    width: '100%',
+    margin: '0.5rem',
+    ...props.style
+  },
   onChange: e => props.onChange(e.target.value)
 })));

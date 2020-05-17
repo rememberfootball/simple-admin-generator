@@ -1,0 +1,41 @@
+name: Publish to NPMJS and Github Packages
+on:
+  push:
+    branches:
+      - master
+jobs:
+  publish-to-npm-and-gpr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+      - name: Update package version and setup git
+        run: |
+          git config user.name "Actions User"
+          git config user.email noreply@github.com
+          npm version 1.0.$(date +%s)
+      # Publish to NPMJS
+      - uses: actions/setup-node@master
+        with:
+          node-version: 12
+          registry-url: 'https://registry.npmjs.org/'
+      - name: Publish to NPMJS
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+          npm config set scope "rememberfootball"
+          npm config list
+          npm publish --access public
+        env:
+          CI: true
+          NODE_AUTH_TOKEN: ${{secrets.NpmToken}}
+
+      # Publish to GitHub Package Registry
+      - uses: actions/setup-node@master
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+          scope: 'rememberfootball'
+      - name: Publish to GitHub Package Registry
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GithubToken}}

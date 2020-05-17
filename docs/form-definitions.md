@@ -373,6 +373,27 @@ export default {
 }
 ```
 
+#### Refreshing component extra data
+
+A component can ask at some point for its extra data to be refreshed (for instance, if a new option has been added). It can trigger the `onRequireRefresh` for this, and its definition must have the `refreshable` property set to `true`.
+
+```javascript
+export default {
+    ...,
+    form: {
+        blocks: [
+            [
+                {
+                    ...,
+                    optionsProvider: 'category',
+                    refreshable: true
+                }
+            ]
+        ]
+    }
+}
+```
+
 ## Full reference
 
 [Form definitions reference](reference.md)

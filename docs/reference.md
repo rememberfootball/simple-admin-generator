@@ -71,4 +71,5 @@
 | props               | Object<propName, propValue> | No       |               | Props to be sent to the component                                                                                                 |
 | externalObjectProps | Object<propName, path>      | No       |               | Extra props to be sent, that are based on a given property of the form's data. If `path` is nested, must be splitted with `.`     |
 | defaultValue        | mixed                       | No       | ''            | Default value for this property. Must be specified if it's something else than an empty string                                    |
-| optionsProvider     | String                      | No       |               | The provider name (defined in form's `providers` section                                                                          |
+| optionsProvider     | String                      | No       |               | Feed the component with extra data (in the `options` prop). Specify the provider name (defined in form's `providers` section      |
+| refreshable         | Boolean                     | No       | false         | Activates the refreshability of the component's extra data                                                                        |

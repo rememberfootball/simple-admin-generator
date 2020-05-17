@@ -1,9 +1,8 @@
 import React from 'react';
 import { Paper } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import './HomePage.css';
-import '../vendor/icofont/icofont.min.css';
 import filterFormDefinitionsHelper from '../helpers/filterFormDefinitionsHelper';
+import './HomePage.css';
 export default (props => {
   const definitions = filterFormDefinitionsHelper(props.definitions, props.withAuth, props.user);
   const IconComponent = d.icon || /*#__PURE__*/React.createElement(React.Fragment, null);

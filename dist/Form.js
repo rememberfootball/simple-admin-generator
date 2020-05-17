@@ -2,9 +2,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 import React, { useState, useEffect } from 'react';
 import { isUndefined, get, set } from 'lodash';
-import SaveButton from './form/SaveButton';
-import externalObjectPropsHelper from '../helpers/externalObjectPropsHelper';
-import { getEmptyOptions, fetchAllOptions, fetchOptions } from '../helpers/optionsStateHelper';
+import SaveButton from './components/SaveButton';
+import externalObjectPropsHelper from './helpers/externalObjectPropsHelper';
+import { getEmptyOptions, fetchAllOptions, fetchOptions } from './helpers/optionsStateHelper';
 export default (props => {
   const [options, setOptions] = useState(getEmptyOptions(props.form.blocks));
 

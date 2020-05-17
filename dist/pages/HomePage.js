@@ -10,7 +10,7 @@ export default (props => {
   }, /*#__PURE__*/React.createElement("div", {
     className: "grid-8-small-2-tiny-2"
   }, definitions.map((d, i) => {
-    const IconComponent = /*#__PURE__*/React.createElement(React.Fragment, null, d.icon) || /*#__PURE__*/React.createElement(React.Fragment, null);
+    const IconComponent = d.icon || React.Fragment;
     return /*#__PURE__*/React.createElement(Link, {
       className: "HomePage-link",
       to: d.baseUrl,
@@ -20,6 +20,6 @@ export default (props => {
       square: true
     }, /*#__PURE__*/React.createElement("div", {
       className: "HomePage-linkContent"
-    }, /*#__PURE__*/React.createElement(IconComponent, null), d.titles.list)));
+    }, /*#__PURE__*/React.createElement(IconComponent, null), /*#__PURE__*/React.createElement("p", null, d.titles.list))));
   })));
 });

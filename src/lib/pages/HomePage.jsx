@@ -10,13 +10,13 @@ export default props => {
     return <section className="HomePage">
         <div className="grid-8-small-2-tiny-2">
             {definitions.map((d, i) => {
-                const IconComponent = <>{ d.icon }</> || <></>;
+                const IconComponent = d.icon || React.Fragment;
 
                 return <Link className="HomePage-link" to={d.baseUrl} key={i}>
                     <Paper className="HomePage-paper" square={true}>
                         <div className="HomePage-linkContent">
                             <IconComponent />
-                            {d.titles.list}
+                            <p>{ d.titles.list }</p>
                         </div>
                     </Paper>
                 </Link>

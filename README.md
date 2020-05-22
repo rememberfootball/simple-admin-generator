@@ -4,7 +4,6 @@
 
 ![](docs/badges/badge-lines.svg) ![](docs/badges/badge-functions.svg) ![](docs/badges/badge-branches.svg) ![](docs/badges/badge-statements.svg)
 
-
 ## What is it?
 
 It's a tool that helps you create a full back-office by declaring all the resources forms in dedicated files. 

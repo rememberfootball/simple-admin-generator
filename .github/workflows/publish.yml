@@ -10,7 +10,9 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
       - name: Test
-        run: npm run test
+        run: |
+          npm install
+          npm run test
 
   publish-to-npm-and-gpr:
     runs-on: ubuntu-latest

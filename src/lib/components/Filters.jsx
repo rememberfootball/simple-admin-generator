@@ -3,7 +3,7 @@ import {Paper} from '@material-ui/core';
 import Input from './Input';
 
 export default props => {
-    return <Paper style={{marginBottom: '2rem', padding: '0.5rem', backgroundColor: '#EEEEEE'}}>
+    return <Paper className="Filters" style={{marginBottom: '2rem', padding: '0.5rem', backgroundColor: '#EEEEEE'}}>
         <h3>Filters</h3>
         <div className="autogrid has-gutter">
             {props.filters.map((filter, i) => (

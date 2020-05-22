@@ -44,7 +44,7 @@ export default props => {
         setErrorSnackbar(false);
     };
 
-    return <section>
+    return <section data-testid="page-create">
         <h1>{ props.definition.titles.create }</h1>
 
         <Breadcrumb

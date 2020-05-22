@@ -23,13 +23,13 @@
 
 ## Calls
 
-| Property | Type     | Required | Purpose                                                                                        |
-|----------|----------|----------|------------------------------------------------------------------------------------------------|
-| list     | Function | Yes      | Called with no argument. Must return a promise with an array of objects with an `id` property. |
-| create   | Function | Yes      | Called with an object representing the resource's data. Must return a promise.                 |
-| update   | Function | Yes      | Called with an object representing the resource's data. Must return a promise.                 |
-| delete   | Function | Yes      | Called with an id. Must return a promise.                                                      |
-| read     | Function | Yes      | Called with an id. Must return a promise with an object representing the form's data.          |
+| Property | Type     | Required | Purpose                                                                                                |
+|----------|----------|----------|--------------------------------------------------------------------------------------------------------|
+| list     | Function | Yes      | Called with no argument. Must return a promise with an array of objects with an `id` property.         |
+| create   | Function | Yes      | Called with an object representing the resource's data. Must return a promise with the created object. |
+| update   | Function | Yes      | Called with an object representing the resource's data. Must return a promise.                         |
+| delete   | Function | Yes      | Called with an id. Must return a promise.                                                              |
+| read     | Function | Yes      | Called with an id. Must return a promise with an object representing the form's data.                  |
 
 ## List
 

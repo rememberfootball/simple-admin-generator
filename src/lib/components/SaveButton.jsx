@@ -9,15 +9,16 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default (props) => {
+export default () => {
     const classes = useStyles();
 
     return <Button
+        data-testid="save-button"
         variant="contained"
         color="primary"
         className={classes.button}
+        type="submit"
         startIcon={<SaveIcon />}
-        onClick={props.onSave}
     >
         Save
     </Button>;

@@ -38,7 +38,7 @@ Then, invoke the Form component:
 ```javascript
 // src/pages/MyPage.jsx
 
-import { Form, definitionToDefaultValueHelper } from '@rememberfootball';
+import { Form, definitionToDefaultValueHelper } from '@rememberfootball/simple-admin-generator';
 import definition from '../forms/TagFormDefinition';
 
 const MyPage = props => {

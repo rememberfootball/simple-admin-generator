@@ -23,9 +23,9 @@ export default (props) => {
         ...(await fetchOptions(props.form, block))
     });
 
-    return <section>
+    return <form data-testid="form" onSubmit={e => { e.preventDefault(); props.onSave(); }}>
         {props.form.blocks.map((blocksContainer, r) =>
-            <div className="autogrid has-gutter-xl row" key={`r${r}`} style={{ padding: '1rem' }}>
+            <div className="autogrid has-gutter-xl row" key={`r${r}`} style={{ padding: '1rem' }} data-testid={`row-${r}`}>
                 {blocksContainer.map((block, c) => {
                     const Component = block.component;
                     const optionsProp = isUndefined(options[block.field]) ? {} :  { options: options[block.field] };
@@ -34,6 +34,7 @@ export default (props) => {
                     const value = isUndefined(dataValue) ? (isUndefined(block.defaultValue) ? '' : block.defaultValue) : dataValue;
 
                     return <Component
+                        data-testid={`form-block-${block.field}`}
                         {...block.props}
                         {...externalObjectPropsHelper(block.externalObjectProps, props.data)}
                         {...optionsProp}
@@ -46,6 +47,6 @@ export default (props) => {
             </div>
         )}
 
-        <SaveButton onSave={props.onSave}>Save</SaveButton>
-    </section>;
+        <SaveButton>Save</SaveButton>
+    </form>;
 };

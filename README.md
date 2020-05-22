@@ -1,5 +1,10 @@
 # Simple Admin Generator
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![](https://github.com/rememberfootball/simple-admin-generator/workflows/Build/badge.svg) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)
+
+![](docs/badges/badge-lines.svg) ![](docs/badges/badge-functions.svg) ![](docs/badges/badge-branches.svg) ![](docs/badges/badge-statements.svg)
+
+
 ## What is it?
 
 It's a tool that helps you create a full back-office by declaring all the resources forms in dedicated files. 

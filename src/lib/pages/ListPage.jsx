@@ -105,10 +105,7 @@ export default props => {
         setFilteredData(filtered);
         setCompares(newCompares);
         setFiltersValues(newFiltersValues);
-        setListData(filtered.slice(
-            page * props.definition.list.rowsPerPage,
-            (page + 1) * props.definition.list.rowsPerPage
-        ));
+        setListData(filtered.slice(0, props.definition.list.rowsPerPage));
         setPage(0);
     };
 
@@ -126,7 +123,7 @@ export default props => {
 
     const ListComponent = props.definition.list.component || List;
 
-    return <section>
+    return <section data-testid="page-list">
         <h1>{ props.definition.titles.list }</h1>
 
         <Breadcrumb

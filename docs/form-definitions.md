@@ -100,7 +100,7 @@ export default {
 Read will be called with an id, and must return a Javascript object
 Remove will be called with an id
 List will be called without argument and must return an array of objects with an `id` property each
-Create and update will be called with an object
+Create and update will be called with an object, and must return it, just as read would do
 
 ### List
 

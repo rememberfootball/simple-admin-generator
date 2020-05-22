@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import definitionToDefaultValueHelper from '../helpers/definitionToDefaultValueHelper';
 import titleHelper from '../helpers/titleHelper';
 import Form from '../Form';
@@ -51,7 +51,7 @@ export default props => {
         setErrorSnackbar(false);
     };
 
-    return <section>
+    return <section data-testid="page-update">
         <h1>
             { titleHelper(props.definition.titles.update, props.definition.titles.vars, data) }
         </h1>

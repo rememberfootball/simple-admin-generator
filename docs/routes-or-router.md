@@ -6,7 +6,7 @@ Simple Admin Generator comes with a built-in router (it uses `react-router`). Th
 
 ```javascript
 import React from 'react';
-import { Router } from '@rememberfootball/Router';
+import { Router } from '@rememberfootball/simple-admin-generator';
 import definitions from './forms/definitions';
 
 const BackOffice = () => {
@@ -28,7 +28,7 @@ Sometimes you may need to have more routes in your application. In this case, it
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LegalPage from './pages/LegalPage';
-import { Routes } from '@rememberfootball/Routes';
+import { Routes } from '@rememberfootball/simple-admin-generator';
 import definitions from './forms/definitions';
 
 const Router = props => <BrowserRouter>

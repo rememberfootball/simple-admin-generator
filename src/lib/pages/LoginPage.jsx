@@ -18,7 +18,7 @@ export default ({ login }) => {
         }
     };
 
-    return <section>
+    return <section data-testid="page-login">
         <h1>Login</h1>
 
         <Backdrop open={loading} />

@@ -7,7 +7,7 @@ import './HomePage.css';
 export default props => {
     const definitions = filterFormDefinitionsHelper(props.definitions, props.withAuth, props.user);
 
-    return <section className="HomePage">
+    return <section className="HomePage" data-testid="page-home">
         <div className="grid-8-small-2-tiny-2">
             {definitions.map((d, i) => {
                 const IconComponent = d.icon || React.Fragment;

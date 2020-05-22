@@ -2,7 +2,7 @@
   "name": "@rememberfootball/simple-admin-generator",
   "description": "A tool that helps you create a full back-office",
   "license": "MIT",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "private": false,
   "repository": {
     "type": "git",
@@ -21,11 +21,15 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.53",
     "lodash": "^4.17.15",
-    "react-router-dom": "^5.2.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "distribute": "rm -rf dist && mkdir dist && babel src/lib -d dist --copy-files"
+    "distribute": "rm -rf dist && mkdir dist && babel src/lib -d dist --copy-files",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen --coverage --watchAll=false && jest-coverage-badges && mv coverage/badge*svg docs/badges/"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,10 +53,25 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6"
+    "@babel/core": "^7.9.6",
+    "@testing-library/jest-dom": "^5.7.0",
+    "@testing-library/react": "^10.0.4",
+    "@testing-library/user-event": "^10.3.1",
+    "jest-coverage-badges": "^1.1.2",
+    "jest-environment-jsdom-sixteen": "^1.0.3"
   },
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/lib/**/*.{js,jsx}"
+    ],
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
+    ]
   }
 }

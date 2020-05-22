@@ -12,6 +12,7 @@ jobs:
       - name: Test
         run: |
           npm install
+          npm install react react-dom
           npm run test
 
   publish-to-npm-and-gpr:

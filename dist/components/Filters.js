@@ -3,6 +3,7 @@ import { Paper } from '@material-ui/core';
 import Input from './Input';
 export default (props => {
   return /*#__PURE__*/React.createElement(Paper, {
+    className: "Filters",
     style: {
       marginBottom: '2rem',
       padding: '0.5rem',

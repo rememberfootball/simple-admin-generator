@@ -2,7 +2,8 @@
   "name": "@rememberfootball/simple-admin-generator",
   "description": "A tool that helps you create a full back-office",
   "license": "MIT",
-  "version": "0.1.12",
+  "version": "0.1.13",
+  "keywords": ["backoffice", "admin"],
   "private": false,
   "repository": {
     "type": "git",

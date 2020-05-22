@@ -51,7 +51,9 @@ export default (props => {
     setErrorSnackbar(false);
   };
 
-  return /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h1", null, titleHelper(props.definition.titles.update, props.definition.titles.vars, data)), /*#__PURE__*/React.createElement(Breadcrumb, {
+  return /*#__PURE__*/React.createElement("section", {
+    "data-testid": "page-update"
+  }, /*#__PURE__*/React.createElement("h1", null, titleHelper(props.definition.titles.update, props.definition.titles.vars, data)), /*#__PURE__*/React.createElement(Breadcrumb, {
     links: [{
       label: 'Home',
       href: '/',

@@ -7,13 +7,14 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1)
   }
 }));
-export default (props => {
+export default (() => {
   const classes = useStyles();
   return /*#__PURE__*/React.createElement(Button, {
+    "data-testid": "save-button",
     variant: "contained",
     color: "primary",
     className: classes.button,
-    startIcon: /*#__PURE__*/React.createElement(SaveIcon, null),
-    onClick: props.onSave
+    type: "submit",
+    startIcon: /*#__PURE__*/React.createElement(SaveIcon, null)
   }, "Save");
 });

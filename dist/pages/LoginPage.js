@@ -19,7 +19,9 @@ export default (({
     }
   };
 
-  return /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h1", null, "Login"), /*#__PURE__*/React.createElement(Backdrop, {
+  return /*#__PURE__*/React.createElement("section", {
+    "data-testid": "page-login"
+  }, /*#__PURE__*/React.createElement("h1", null, "Login"), /*#__PURE__*/React.createElement(Backdrop, {
     open: loading
   }), /*#__PURE__*/React.createElement(LoginForm, {
     onSubmit: handleSubmit

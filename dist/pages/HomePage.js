@@ -6,7 +6,8 @@ import './HomePage.css';
 export default (props => {
   const definitions = filterFormDefinitionsHelper(props.definitions, props.withAuth, props.user);
   return /*#__PURE__*/React.createElement("section", {
-    className: "HomePage"
+    className: "HomePage",
+    "data-testid": "page-home"
   }, /*#__PURE__*/React.createElement("div", {
     className: "grid-8-small-2-tiny-2"
   }, definitions.map((d, i) => {

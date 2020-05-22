@@ -98,7 +98,7 @@ export default (props => {
     setFilteredData(filtered);
     setCompares(newCompares);
     setFiltersValues(newFiltersValues);
-    setListData(filtered.slice(page * props.definition.list.rowsPerPage, (page + 1) * props.definition.list.rowsPerPage));
+    setListData(filtered.slice(0, props.definition.list.rowsPerPage));
     setPage(0);
   };
 
@@ -112,7 +112,9 @@ export default (props => {
   };
 
   const ListComponent = props.definition.list.component || List;
-  return /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h1", null, props.definition.titles.list), /*#__PURE__*/React.createElement(Breadcrumb, {
+  return /*#__PURE__*/React.createElement("section", {
+    "data-testid": "page-list"
+  }, /*#__PURE__*/React.createElement("h1", null, props.definition.titles.list), /*#__PURE__*/React.createElement(Breadcrumb, {
     links: [{
       label: 'Home',
       href: '/',

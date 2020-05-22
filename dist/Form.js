@@ -24,12 +24,19 @@ export default (props => {
     ...(await fetchOptions(props.form, block))
   });
 
-  return /*#__PURE__*/React.createElement("section", null, props.form.blocks.map((blocksContainer, r) => /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement("form", {
+    "data-testid": "form",
+    onSubmit: e => {
+      e.preventDefault();
+      props.onSave();
+    }
+  }, props.form.blocks.map((blocksContainer, r) => /*#__PURE__*/React.createElement("div", {
     className: "autogrid has-gutter-xl row",
     key: `r${r}`,
     style: {
       padding: '1rem'
-    }
+    },
+    "data-testid": `row-${r}`
   }, blocksContainer.map((block, c) => {
     const Component = block.component;
     const optionsProp = isUndefined(options[block.field]) ? {} : {
@@ -40,12 +47,12 @@ export default (props => {
     } : {};
     const dataValue = get(props.data, block.field);
     const value = isUndefined(dataValue) ? isUndefined(block.defaultValue) ? '' : block.defaultValue : dataValue;
-    return /*#__PURE__*/React.createElement(Component, _extends({}, block.props, externalObjectPropsHelper(block.externalObjectProps, props.data), optionsProp, refreshProp, {
+    return /*#__PURE__*/React.createElement(Component, _extends({
+      "data-testid": `form-block-${block.field}`
+    }, block.props, externalObjectPropsHelper(block.externalObjectProps, props.data), optionsProp, refreshProp, {
       value: value,
       onChange: v => handleChange(v, block),
       key: `r${r}c${c}`
     }));
-  }))), /*#__PURE__*/React.createElement(SaveButton, {
-    onSave: props.onSave
-  }, "Save"));
+  }))), /*#__PURE__*/React.createElement(SaveButton, null, "Save"));
 });

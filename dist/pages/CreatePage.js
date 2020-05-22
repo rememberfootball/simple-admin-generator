@@ -42,7 +42,9 @@ export default (props => {
     setErrorSnackbar(false);
   };
 
-  return /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement("h1", null, props.definition.titles.create), /*#__PURE__*/React.createElement(Breadcrumb, {
+  return /*#__PURE__*/React.createElement("section", {
+    "data-testid": "page-create"
+  }, /*#__PURE__*/React.createElement("h1", null, props.definition.titles.create), /*#__PURE__*/React.createElement(Breadcrumb, {
     links: [{
       label: 'Home',
       href: '/',

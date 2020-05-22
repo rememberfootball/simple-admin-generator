@@ -24,6 +24,7 @@ export default (props => {
     label: "Password"
   }), /*#__PURE__*/React.createElement(Button, {
     color: "primary",
-    type: "submit"
+    type: "submit",
+    "data-testid": "login-button"
   }, "Login"));
 });

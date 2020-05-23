@@ -1,6 +1,9 @@
 # Simple Admin Generator
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![](https://github.com/rememberfootball/simple-admin-generator/workflows/Build/badge.svg) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)
+
+![](https://github.com/rememberfootball/simple-admin-generator/workflows/Test/badge.svg)
+![](https://github.com/rememberfootball/simple-admin-generator/workflows/Publish/badge.svg)
 
 ![](docs/badges/badge-lines.svg) ![](docs/badges/badge-functions.svg) ![](docs/badges/badge-branches.svg) ![](docs/badges/badge-statements.svg)
 
@@ -28,7 +31,7 @@ You can find detailed instructions on using Simple Admin Generator in its [docum
 
 ## Screens
 
-Simple Admin Generator can produce these screens with a few lines of coniguration:
+Simple Admin Generator can produce these screens with a few lines of configuration:
 
 Homepage:
 ![](docs/screens/home.png)

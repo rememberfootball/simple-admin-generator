@@ -1,0 +1,16 @@
+name: Test
+on:
+  push:
+    branches:
+      - master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+      - name: Test
+        run: |
+          npm install
+          npm install react react-dom
+          npm run test

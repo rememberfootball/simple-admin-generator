@@ -1,8 +1,8 @@
-name: Build
+name: Publish
 on:
-  push:
-    branches:
-      - master
+  release:
+    types:
+      - created
 jobs:
   test:
     runs-on: ubuntu-latest

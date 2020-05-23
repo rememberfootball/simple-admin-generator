@@ -26,3 +26,15 @@ npm install i -S @rememberfootball/simple-admin-generator
 
 You can find detailed instructions on using Simple Admin Generator in its [documentation](docs/user-guide.md)
 
+## Screens
+
+Simple Admin Generator can produce these screens with a few lines of coniguration:
+
+Homepage:
+![](docs/screens/home.png)
+
+List page:
+![](docs/screens/list.png)
+
+Update page:
+![](docs/screens/update.png)

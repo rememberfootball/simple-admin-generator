@@ -16,7 +16,7 @@ export default (props => {
   const [errorSnackbar, setErrorSnackbar] = useState(false);
   const {
     id
-  } = useParams();
+  } = props.definition.list.noList ? {} : useParams();
 
   const init = () => {
     props.definition.calls.read(id).then(data => {

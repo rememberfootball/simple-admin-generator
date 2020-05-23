@@ -1,30 +1,33 @@
 # Simple Admin Generator - Documentation - Creating form definitions
 
 ## Table of contents
-  - [Definitions exporter](#definitions-exporter)
-  - [Basic definition skeleton](#basic-definition-skeleton)
-    - [Base URL](#base-url)
-    - [Titles](#titles)
-    - [Calls](#calls)
-    - [List](#list)
-    - [Form](#form)
-    - [Sum up](#sum-up)
-  - [Digging deeper](#digging-deeper)
-    - [Root config](#root-config)
-      - [Adding an icon to the home page link to this form](#adding-an-icon-to-the-home-page-link-to-this-form)
-      - [Restricting access to the form to users with a given role](#restricting-access-to-the-form-to-users-with-a-given-role)
-    - [Titles](#titles-1)
-      - [Customizing the update page title](#customizing-the-update-page-title)
-    - [List page](#list-page)
-      - [Adding filters to the list page](#adding-filters-to-the-list-page)
-      - [Paginating the list page](#paginating-the-list-page)
-    - [Forms](#forms)
-      - [Blocks](#blocks)
-        - [Specifying component props](#specifying-component-props)
-        - [Specifying component's default value](#specifying-components-default-value)
-      - [Fetching extra data for components](#fetching-extra-data-for-components)
-  - [Full reference](#full-reference)
-  - [Next step](#next-step)
+- [Definitions exporter](#definitions-exporter)
+- [Basic definition skeleton](#basic-definition-skeleton)
+- [Base URL](#base-url)
+- [Titles](#titles)
+- [Calls](#calls)
+- [List](#list)
+- [Form](#form)
+- [Sum up](#sum-up)
+- [Digging deeper](#digging-deeper)
+- [Root config](#root-config)
+  - [Adding an icon to the home page link to this form](#adding-an-icon-to-the-home-page-link-to-this-form)
+  - [Restricting access to the form to users with a given role](#restricting-access-to-the-form-to-users-with-a-given-role)
+- [Titles](#titles-1)
+  - [Customizing the update page title](#customizing-the-update-page-title)
+- [List page](#list-page)
+  - [Adding filters to the list page](#adding-filters-to-the-list-page)
+  - [Paginating the list page](#paginating-the-list-page)
+  - [Overriding the list component](#overriding-the-list-component)
+  - [Avoiding the list page](#avoiding-the-list-page)
+- [Forms](#forms)
+  - [Blocks](#blocks)
+    - [Specifying component props](#specifying-component-props)
+    - [Specifying component's default value](#specifying-components-default-value)
+  - [Fetching extra data for components](#fetching-extra-data-for-components)
+  - [Refreshing component extra data](#refreshing-component-extra-data)
+- [Full reference](#full-reference)
+- [Next step](#next-step)
 
 ## Definitions exporter
 
@@ -97,10 +100,10 @@ export default {
 }
 ```
 
-Read will be called with an id, and must return a Javascript object
-Remove will be called with an id
-List will be called without argument and must return an array of objects with an `id` property each
-Create and update will be called with an object, and must return it, just as read would do
+- Read will be called with an id, and must return a Javascript object
+- Remove will be called with an id
+- List will be called without argument and must return an array of objects with an `id` property each
+- Create and update will be called with an object, and must return it, just as read would do
 
 ### List
 
@@ -287,6 +290,23 @@ export default {
     list: {
         ...,
         component: MyListComponent
+    }
+}
+```
+
+#### Avoiding the list page
+
+Sometimes, resources are unique, and thus not listable (for the global configuration of the website, for instance). To avoid creating a list page, specify the `noList` property under list. Also, the `read` call won't be called with an id and the `list`, `update` and `delete` ones aren't necessary.
+
+```javascript
+export default {
+    ...,
+    list: {
+        noList: true
+    },
+    calls: {
+        read: API.read,
+        update: API.edit
     }
 }
 ```

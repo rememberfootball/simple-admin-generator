@@ -16,7 +16,7 @@ const Routes = props => {
             <HomePage definitions={definitions} withAuth={props.withAuth} user={props.user} />
         </Route>
         {
-            definitions.map((d, id) => (
+            definitions.filter(d => !d.list.noList).map((d, id) => (
                 <Route key={`c${id}`} exact path={`${d.baseUrl}/new`}>
                     <CreatePage definition={d} />
                 </Route>
@@ -24,13 +24,17 @@ const Routes = props => {
         }
         {
             definitions.map((d, id) => (
-                <Route key={`u${id}`} exact path={`${d.baseUrl}/edit/:id`}>
+                <Route
+                    key={`u${id}`}
+                    exact
+                    path={`${d.baseUrl}${d.list.noList ? '' : '/edit/:id'}`}
+                >
                     <UpdatePage definition={d} />
                 </Route>
             ))
         }
         {
-            definitions.map((d, id) => (
+            definitions.filter(d => !d.list.noList).map((d, id) => (
                 <Route key={`l${id}`} exact path={`${d.baseUrl}`}>
                     <ListPage definition={d} />
                 </Route>

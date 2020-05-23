@@ -17,7 +17,7 @@ const Routes = props => {
     definitions: definitions,
     withAuth: props.withAuth,
     user: props.user
-  })), definitions.map((d, id) => /*#__PURE__*/React.createElement(Route, {
+  })), definitions.filter(d => !d.list.noList).map((d, id) => /*#__PURE__*/React.createElement(Route, {
     key: `c${id}`,
     exact: true,
     path: `${d.baseUrl}/new`
@@ -26,10 +26,10 @@ const Routes = props => {
   }))), definitions.map((d, id) => /*#__PURE__*/React.createElement(Route, {
     key: `u${id}`,
     exact: true,
-    path: `${d.baseUrl}/edit/:id`
+    path: `${d.baseUrl}${d.list.noList ? '' : '/edit/:id'}`
   }, /*#__PURE__*/React.createElement(UpdatePage, {
     definition: d
-  }))), definitions.map((d, id) => /*#__PURE__*/React.createElement(Route, {
+  }))), definitions.filter(d => !d.list.noList).map((d, id) => /*#__PURE__*/React.createElement(Route, {
     key: `l${id}`,
     exact: true,
     path: `${d.baseUrl}`

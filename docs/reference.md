@@ -23,13 +23,13 @@
 
 ## Calls
 
-| Property | Type     | Required | Purpose                                                                                                |
-|----------|----------|----------|--------------------------------------------------------------------------------------------------------|
-| list     | Function | Yes      | Called with no argument. Must return a promise with an array of objects with an `id` property.         |
-| create   | Function | Yes      | Called with an object representing the resource's data. Must return a promise with the created object. |
-| update   | Function | Yes      | Called with an object representing the resource's data. Must return a promise.                         |
-| delete   | Function | Yes      | Called with an id. Must return a promise.                                                              |
-| read     | Function | Yes      | Called with an id. Must return a promise with an object representing the form's data.                  |
+| Property | Type     | Required                                                | Purpose                                                                                                                                                 |
+|----------|----------|---------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| read     | Function | Yes                                                     | Called with an id if `list.noList` unspecified or false, with no argument otherwise. Must return a promise with an object representing the form's data. |
+| update   | Function | Yes                                                     | Called with an object representing the resource's data. Must return a promise.                                                                          |
+| list     | Function | Yes if `list.noList` unspecified of false, no otherwise | Called with no argument. Must return a promise with an array of objects with an `id` property.                                                          |
+| create   | Function | Yes if `list.noList` unspecified of false, no otherwise | Called with an object representing the resource's data. Must return a promise with the created object.                                                  |
+| delete   | Function | Yes if `list.noList` unspecified of false, no otherwise | Called with an id. Must return a promise.                                                                                                               |
 
 ## List
 
@@ -40,6 +40,7 @@
 | paginate         | Boolean                                            | No                           | false         | Whether or not the list page should be paginated   |
 | rowsPerPage      | Integer                                            | Yes (if `paginate` is `true` |               | Amount of displayed rows if list page is paginaged |
 | component        | React Component                                    | No                           |               | Override the default list component                |
+| noList           | Boolean                                            | No                           | false         | True to avoid the list page                        |
 
 ### ListDisplayedColumn
 

@@ -25,4 +25,4 @@ If `withAuth` is set to false, no param other than `definitions` is needed, obvi
 
 ### Restricting some forms to given roles
 
-Some forms can be restricted to given roles, by setting the `roles` array property in their definition (see [dedicated chapter](form-definitions.md)). In this case, the user **must** have a `roles` array property.  
+Some forms and fields can be restricted to given roles, by setting the `roles` array property in their definition (see [dedicated chapter](form-definitions.md)). In this case, the user **must** have a `roles` array property.  

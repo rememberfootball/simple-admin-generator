@@ -74,3 +74,4 @@
 | defaultValue        | mixed                       | No       | ''            | Default value for this property. Must be specified if it's something else than an empty string                                    |
 | optionsProvider     | String                      | No       |               | Feed the component with extra data (in the `options` prop). Specify the provider name (defined in form's `providers` section      |
 | refreshable         | Boolean                     | No       | false         | Activates the refreshability of the component's extra data                                                                        |
+| roles               | Array<String>               | No       | undefined     | If auth required for the backoffice, which user roles will have access to this resource                                           |

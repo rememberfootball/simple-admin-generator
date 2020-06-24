@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import definitionToDefaultValueHelper from '../helpers/definitionToDefaultValueHelper';
 import Form from '../Form';
 import Backdrop from '../components/Backdrop';

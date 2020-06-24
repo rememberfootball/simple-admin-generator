@@ -1,33 +1,35 @@
 # Simple Admin Generator - Documentation - Creating form definitions
 
-## Table of contents
-- [Definitions exporter](#definitions-exporter)
-- [Basic definition skeleton](#basic-definition-skeleton)
-- [Base URL](#base-url)
-- [Titles](#titles)
-- [Calls](#calls)
-- [List](#list)
-- [Form](#form)
-- [Sum up](#sum-up)
-- [Digging deeper](#digging-deeper)
-- [Root config](#root-config)
-  - [Adding an icon to the home page link to this form](#adding-an-icon-to-the-home-page-link-to-this-form)
-  - [Restricting access to the form to users with a given role](#restricting-access-to-the-form-to-users-with-a-given-role)
-- [Titles](#titles-1)
-  - [Customizing the update page title](#customizing-the-update-page-title)
-- [List page](#list-page)
-  - [Adding filters to the list page](#adding-filters-to-the-list-page)
-  - [Paginating the list page](#paginating-the-list-page)
-  - [Overriding the list component](#overriding-the-list-component)
-  - [Avoiding the list page](#avoiding-the-list-page)
-- [Forms](#forms)
-  - [Blocks](#blocks)
-    - [Specifying component props](#specifying-component-props)
-    - [Specifying component's default value](#specifying-components-default-value)
-  - [Fetching extra data for components](#fetching-extra-data-for-components)
-  - [Refreshing component extra data](#refreshing-component-extra-data)
-- [Full reference](#full-reference)
-- [Next step](#next-step)
+## Table of Contents
+
+  - [Definitions exporter](#definitions-exporter)
+  - [Basic definition skeleton](#basic-definition-skeleton)
+    - [Base URL](#base-url)
+    - [Titles](#titles)
+    - [Calls](#calls)
+    - [List](#list)
+    - [Form](#form)
+    - [Sum up](#sum-up)
+  - [Digging deeper](#digging-deeper)
+    - [Root config](#root-config)
+      - [Adding an icon to the home page link to this form](#adding-an-icon-to-the-home-page-link-to-this-form)
+      - [Restricting access to the form to users with a given role](#restricting-access-to-the-form-to-users-with-a-given-role)
+    - [Titles](#titles-1)
+      - [Customizing the update page title](#customizing-the-update-page-title)
+    - [List page](#list-page)
+      - [Adding filters to the list page](#adding-filters-to-the-list-page)
+      - [Paginating the list page](#paginating-the-list-page)
+      - [Overriding the list component](#overriding-the-list-component)
+      - [Avoiding the list page](#avoiding-the-list-page)
+    - [Forms](#forms)
+      - [Blocks](#blocks)
+        - [Specifying component props](#specifying-component-props)
+        - [Restricting access to some fields to users with a given role](#restricting-access-to-some-fields-to-users-with-a-given-role)
+        - [Specifying component's default value](#specifying-components-default-value)
+      - [Fetching extra data for components](#fetching-extra-data-for-components)
+      - [Refreshing component extra data](#refreshing-component-extra-data)
+  - [Full reference](#full-reference)
+  - [Next step](#next-step)
 
 ## Definitions exporter
 
@@ -339,6 +341,24 @@ export default {
 ```
 
 `externalObjectProps` are additional props that are based on a given property of the resource. If the given field is nested, separate the path with dots.
+
+##### Restricting access to some fields to users with a given role
+
+```javascript
+export default {
+    ...,
+    form: {
+        blocks: [
+            [
+                {
+                    ...,
+                    roles: ['admin']
+                }       
+            ]
+        ]
+    }
+}
+```
 
 ##### Specifying component's default value
 

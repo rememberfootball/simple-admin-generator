@@ -8,9 +8,9 @@ export default (definitions, withAuth, user) => {
             ...d,
             form: {
                 ...d.form,
-                blocks: {
+                blocks: [
                     ...(d.form.blocks.map ? d.form.blocks.map(r => r.filter(c => !c.roles || intersection(c.roles, user.roles).length > 0)).filter(r => r.length > 0) : [])
-                }
+                ]
             }
         }));
     }

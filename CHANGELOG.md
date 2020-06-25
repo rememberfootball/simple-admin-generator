@@ -1,3 +1,9 @@
+## 0.3.1
+
+### :bug: Bug Fix
+
+- Fixed bug in fields filtering for given roles
+
 ## 0.3.0
 
 ### :nail_care: Enhancement

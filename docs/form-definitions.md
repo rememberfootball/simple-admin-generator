@@ -1,7 +1,6 @@
 # Simple Admin Generator - Documentation - Creating form definitions
 
-## Table of Contents
-
+## Table of contents
   - [Definitions exporter](#definitions-exporter)
   - [Basic definition skeleton](#basic-definition-skeleton)
     - [Base URL](#base-url)
@@ -21,6 +20,10 @@
       - [Paginating the list page](#paginating-the-list-page)
       - [Overriding the list component](#overriding-the-list-component)
       - [Avoiding the list page](#avoiding-the-list-page)
+    - [Creation](#creation)
+      - [Restricting access to creation to given user roles](#restricting-access-to-creation-to-given-user-roles)
+    - [Deletion](#deletion)
+      - [Restricting access to deletion to given user roles](#restricting-access-to-deletion-to-given-user-roles)
     - [Forms](#forms)
       - [Blocks](#blocks)
         - [Specifying component props](#specifying-component-props)
@@ -309,6 +312,32 @@ export default {
     calls: {
         read: API.read,
         update: API.edit
+    }
+}
+```
+
+### Creation
+
+#### Restricting access to creation to given user roles
+
+```javascript
+export default {
+    ...,
+    create: {
+        roles: ['ROLE_ADMIN']
+    }
+}
+```
+
+### Deletion
+
+#### Restricting access to deletion to given user roles
+
+```javascript
+export default {
+    ...,
+    delete: {
+        roles: ['ROLE_ADMIN']
     }
 }
 ```

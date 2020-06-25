@@ -29,7 +29,7 @@ export default (props => {
     onClick: () => {
       props.onEditClick(row.id);
     }
-  }, "Edit"), /*#__PURE__*/React.createElement(Button, {
+  }, "Edit"), props.canDelete ? /*#__PURE__*/React.createElement(Button, {
     variant: "contained",
     color: "secondary",
     startIcon: /*#__PURE__*/React.createElement(DeleteIcon, null),
@@ -37,7 +37,7 @@ export default (props => {
     onClick: () => {
       props.onDeleteClick(row.id);
     }
-  }, "Delete"))))))), props.paginate && props.rows.length > 0 ? /*#__PURE__*/React.createElement(TablePagination, {
+  }, "Delete") : null)))))), props.paginate && props.rows.length > 0 ? /*#__PURE__*/React.createElement(TablePagination, {
     component: "div",
     count: props.count,
     rowsPerPage: props.rowsPerPage,

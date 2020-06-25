@@ -33,15 +33,17 @@ export default (props) => {
                                 >
                                     Edit
                                 </Button>
-                                <Button
-                                    variant="contained"
-                                    color="secondary"
-                                    startIcon={<DeleteIcon />}
-                                    size="small"
-                                    onClick={() => { props.onDeleteClick(row.id) }}
-                                >
-                                    Delete
-                                </Button>
+                                { props.canDelete ? (
+                                    <Button
+                                        variant="contained"
+                                        color="secondary"
+                                        startIcon={<DeleteIcon />}
+                                        size="small"
+                                        onClick={() => { props.onDeleteClick(row.id) }}
+                                    >
+                                        Delete
+                                    </Button>
+                                ) : null }
                             </TableCell>
                         </TableRow>
                     ))}

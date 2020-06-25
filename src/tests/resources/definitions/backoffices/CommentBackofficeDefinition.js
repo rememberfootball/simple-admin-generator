@@ -25,6 +25,8 @@ export default {
         ],
         paginate: false
     },
+    create: {},
+    delete: {},
     form: {
         blocks: []
     }

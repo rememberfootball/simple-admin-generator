@@ -140,15 +140,18 @@ export default props => {
             <Filters filters={props.definition.list.filters} onChange={handleFilterChange} />
         ) : null}
 
-        <Button
-            variant="contained"
-            color="primary"
-            size="small"
-            startIcon={<AddCircleIcon />}
-            onClick={() => history.push(`${props.definition.baseUrl}/new`)}
-        >
-            New
-        </Button>
+        {props.definition.canCreate ? (
+            <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                startIcon={<AddCircleIcon />}
+                onClick={() => history.push(`${props.definition.baseUrl}/new`)}
+            >
+                New
+            </Button>
+        ) : null}
+
         <ListComponent
             headers={props.definition.list.displayedColumns}
             rows={listData}
@@ -156,6 +159,7 @@ export default props => {
             rowsPerPage={props.definition.list.rowsPerPage}
             page={page}
             count={filteredData.length}
+            canDelete={props.definition.canDelete}
             onEditClick={handleEditClick}
             onDeleteClick={handleDeleteClick}
             onChangePage={handleChangePage}

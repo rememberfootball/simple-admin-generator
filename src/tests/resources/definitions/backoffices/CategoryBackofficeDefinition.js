@@ -5,6 +5,12 @@ export default {
     baseUrl: '/categories',
     icon: DescriptionIcon,
     roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'],
+    create: {
+        roles: ['ROLE_SUPER_ADMIN']
+    },
+    delete: {
+        roles: ['ROLE_SUPER_ADMIN']
+    },
     form: {
         blocks: [
             [

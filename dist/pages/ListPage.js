@@ -127,19 +127,20 @@ export default (props => {
   }), props.definition.list.filters ? /*#__PURE__*/React.createElement(Filters, {
     filters: props.definition.list.filters,
     onChange: handleFilterChange
-  }) : null, /*#__PURE__*/React.createElement(Button, {
+  }) : null, props.definition.canCreate ? /*#__PURE__*/React.createElement(Button, {
     variant: "contained",
     color: "primary",
     size: "small",
     startIcon: /*#__PURE__*/React.createElement(AddCircleIcon, null),
     onClick: () => history.push(`${props.definition.baseUrl}/new`)
-  }, "New"), /*#__PURE__*/React.createElement(ListComponent, {
+  }, "New") : null, /*#__PURE__*/React.createElement(ListComponent, {
     headers: props.definition.list.displayedColumns,
     rows: listData,
     paginate: props.definition.list.paginate || false,
     rowsPerPage: props.definition.list.rowsPerPage,
     page: page,
     count: filteredData.length,
+    canDelete: props.definition.canDelete,
     onEditClick: handleEditClick,
     onDeleteClick: handleDeleteClick,
     onChangePage: handleChangePage

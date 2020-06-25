@@ -17,7 +17,7 @@ const Routes = props => {
     definitions: definitions,
     withAuth: props.withAuth,
     user: props.user
-  })), definitions.filter(d => !d.list.noList).map((d, id) => /*#__PURE__*/React.createElement(Route, {
+  })), definitions.filter(d => !d.list.noList && d.canCreate).map((d, id) => /*#__PURE__*/React.createElement(Route, {
     key: `c${id}`,
     exact: true,
     path: `${d.baseUrl}/new`

@@ -3,11 +3,13 @@ import filterFormDefinitionsHelper from '../../../src/lib/helpers/filterFormDefi
 import '@testing-library/jest-dom/extend-expect';
 import definitions from '../resources/definitions';
 import CategoryBackofficeDefinition from '../resources/definitions/backoffices/CategoryBackofficeDefinition';
+import ArticleBackofficeDefinition from '../resources/definitions/backoffices/ArticleBackofficeDefinition';
+import CommentBackofficeDefinition from '../resources/definitions/backoffices/CommentBackofficeDefinition';
 
 test('returns all the definitions if there is no authentication', async () => {
     const data = filterFormDefinitionsHelper(definitions, false);
 
-    expect(data).toEqual(definitions);
+    expect(data).toEqual(definitions.map(d => ({ ...d, canCreate: true, canDelete: true })));
     expect(data.length).toEqual(2);
 });
 
@@ -60,4 +62,74 @@ test('returns definitions with fields not restricted to roles, and fields matchi
     expect(data[0].form.blocks).toHaveLength(2);
     expect(data[0].form.blocks[0]).toHaveLength(2);
     expect(data[0].form.blocks[1]).toHaveLength(1);
+});
+
+test('can create is true if no auth', async () => {
+    const data = filterFormDefinitionsHelper([ CategoryBackofficeDefinition ], false);
+
+    expect(data.length).toEqual(1);
+    expect(data[0].canCreate).toEqual(true);
+});
+
+test('can create is true if auth and no "create" section', async () => {
+    const data = filterFormDefinitionsHelper([ ArticleBackofficeDefinition ], true, { roles: ['ROLE_SUPER_ADMIN'] });
+
+    expect(data.length).toEqual(1);
+    expect(data[0].canCreate).toEqual(true);
+});
+
+test('can create is true if auth and no "create.roles" section', async () => {
+    const data = filterFormDefinitionsHelper([ CommentBackofficeDefinition ], true, { roles: ['ROLE_SUPER_ADMIN'] });
+
+    expect(data.length).toEqual(1);
+    expect(data[0].canCreate).toEqual(true);
+});
+
+test('can create is true if auth and matching roles in "create.roles" section', async () => {
+    const data = filterFormDefinitionsHelper([ CategoryBackofficeDefinition ], true, { roles: ['ROLE_SUPER_ADMIN'] });
+
+    expect(data.length).toEqual(1);
+    expect(data[0].canCreate).toEqual(true);
+});
+
+test('can create is false if auth and not matching roles in "create.roles" section', async () => {
+    const data = filterFormDefinitionsHelper([ CategoryBackofficeDefinition ], true, { roles: ['ROLE_ADMIN'] });
+
+    expect(data.length).toEqual(1);
+    expect(data[0].canCreate).toEqual(false);
+});
+
+test('can create is true if no auth', async () => {
+    const data = filterFormDefinitionsHelper([ CategoryBackofficeDefinition ], false);
+
+    expect(data.length).toEqual(1);
+    expect(data[0].canCreate).toEqual(true);
+});
+
+test('can delete is true if auth and no "delete" section', async () => {
+    const data = filterFormDefinitionsHelper([ ArticleBackofficeDefinition ], true, { roles: ['ROLE_SUPER_ADMIN'] });
+
+    expect(data.length).toEqual(1);
+    expect(data[0].canDelete).toEqual(true);
+});
+
+test('can delete is true if auth and no "delete.roles" section', async () => {
+    const data = filterFormDefinitionsHelper([ CommentBackofficeDefinition ], true, { roles: ['ROLE_SUPER_ADMIN'] });
+
+    expect(data.length).toEqual(1);
+    expect(data[0].canDelete).toEqual(true);
+});
+
+test('can delete is true if auth and matching roles in "delete.roles" section', async () => {
+    const data = filterFormDefinitionsHelper([ CategoryBackofficeDefinition ], true, { roles: ['ROLE_SUPER_ADMIN'] });
+
+    expect(data.length).toEqual(1);
+    expect(data[0].canDelete).toEqual(true);
+});
+
+test('can delete is false if auth and not matching roles in "delete.roles" section', async () => {
+    const data = filterFormDefinitionsHelper([ CategoryBackofficeDefinition ], true, { roles: ['ROLE_ADMIN'] });
+
+    expect(data.length).toEqual(1);
+    expect(data[0].canDelete).toEqual(false);
 });

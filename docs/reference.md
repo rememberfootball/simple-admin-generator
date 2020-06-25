@@ -7,8 +7,10 @@
 | baseUrl  | String             | Yes      |               | Base URL of the routes for this form                                                    |
 | titles   | [Titles](#titles)  | Yes      |               | Titles of pages                                                                         |
 | calls    | [Calls](#calls)    | Yes      |               | Methods to call to perform form actions                                                 |
-| list     | [List](#list)      | Yes      |               | Specfic settings of list page                                                           |
+| list     | [List](#list)      | Yes      |               | Specific settings of list page                                                          |
 | form     | [Form](#form)      | Yes      |               | The form definition                                                                     |
+| create   | [Create](#create)  | No       |               | Specific settings on accesses for creation of new resources                             |
+| delete   | [Delete](#delete)  | No       |               | Specific settings on accesses for deletion of resources                                 |
 | icon     | React Component    | No       | undefined     | Icon for home page link to the list page of this form                                   |
 | roles    | Array<String>      | No       | undefined     | If auth required for the backoffice, which user roles will have access to this resource |
 
@@ -41,6 +43,18 @@
 | rowsPerPage      | Integer                                            | Yes (if `paginate` is `true` |               | Amount of displayed rows if list page is paginaged |
 | component        | React Component                                    | No                           |               | Override the default list component                |
 | noList           | Boolean                                            | No                           | false         | True to avoid the list page                        |
+
+## Create
+
+| Property | Type          | Required | Default value | Purpose                                                                                    |
+|----------|---------------|----------|---------------|--------------------------------------------------------------------------------------------|
+| roles    | Array<String> | No       | undefined     | If auth required for the backoffice, which user roles will be able to create new resources |
+
+## Delete
+
+| Property | Type          | Required | Default value | Purpose                                                                                |
+|----------|---------------|----------|---------------|----------------------------------------------------------------------------------------|
+| roles    | Array<String> | No       | undefined     | If auth required for the backoffice, which user roles will be able to delete resources |
 
 ### ListDisplayedColumn
 

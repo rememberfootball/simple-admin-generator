@@ -1,3 +1,9 @@
+## 0.4.0
+
+### :nail_care: Enhancement
+
+- Added possibility to restrict creation and deletion to given roles
+
 ## 0.3.2
 
 ### :bug: Bug Fix

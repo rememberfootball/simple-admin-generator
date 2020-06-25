@@ -16,7 +16,7 @@ const Routes = props => {
             <HomePage definitions={definitions} withAuth={props.withAuth} user={props.user} />
         </Route>
         {
-            definitions.filter(d => !d.list.noList).map((d, id) => (
+            definitions.filter(d => !d.list.noList && d.canCreate).map((d, id) => (
                 <Route key={`c${id}`} exact path={`${d.baseUrl}/new`}>
                     <CreatePage definition={d} />
                 </Route>

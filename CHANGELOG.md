@@ -1,3 +1,9 @@
+## 0.3.2
+
+### :bug: Bug Fix
+
+- Removed unwanted dependency
+
 ## 0.3.1
 
 ### :bug: Bug Fix

@@ -29,7 +29,7 @@ export default (props) => {
                                     color="default"
                                     startIcon={<EditIcon />}
                                     size="small"
-                                    onClick={() => { props.onEditClick(row.id) }}
+                                    href={`${props.editBaseUrl}/${row.id}`}
                                 >
                                     Edit
                                 </Button>

@@ -162,11 +162,7 @@ test('click on edit', async () => {
         );
     });
 
-    await act(async () => {
-        await userEvent.click(screen.getByTestId('page-list').getElementsByClassName('MuiTable-root')[0].getElementsByClassName('MuiButtonBase-root')[0]);
-    });
-
-    expect(screen.getByTestId('page-update').getElementsByTagName('h1')[0]).toHaveTextContent('Update');
+    expect(screen.getByTestId('page-list').getElementsByClassName('MuiTable-root')[0].getElementsByClassName('MuiButtonBase-root')[0]).toHaveAttribute('href', '/articles/edit/1');
 });
 
 test('delete', async () => {

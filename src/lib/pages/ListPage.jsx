@@ -160,6 +160,7 @@ export default props => {
             page={page}
             count={filteredData.length}
             canDelete={props.definition.canDelete}
+            editBaseUrl={`${props.definition.baseUrl}/edit`}
             onEditClick={handleEditClick}
             onDeleteClick={handleDeleteClick}
             onChangePage={handleChangePage}

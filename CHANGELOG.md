@@ -1,3 +1,9 @@
+## 0.5.0
+
+### :nail_care: Enhancement
+
+- List: "edit" button is now a real link instead of a button
+
 ## 0.4.0
 
 ### :nail_care: Enhancement

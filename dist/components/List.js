@@ -26,9 +26,7 @@ export default (props => {
     color: "default",
     startIcon: /*#__PURE__*/React.createElement(EditIcon, null),
     size: "small",
-    onClick: () => {
-      props.onEditClick(row.id);
-    }
+    href: `${props.editBaseUrl}/${row.id}`
   }, "Edit"), props.canDelete ? /*#__PURE__*/React.createElement(Button, {
     variant: "contained",
     color: "secondary",
